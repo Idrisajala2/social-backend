@@ -1,16 +1,20 @@
 const mongoose = require("mongoose");
-require("dotenv").config();
+// require("dotenv").config();
 
-// const url = process.env.URL;
-const online = process.env.ONLINE;
+// const url = "mongodb://localhost/instaBuild";
+const url =
+  "mongodb+srv://idrisolas:Kendrick12@cluster0.ustoh.mongodb.net/socialapp?";
+
+// const url =
+//   "mongosh mongodb+srv://cluster0.ustoh.mongodb.net/onlinebulid --apiVersion 1 --username idrisolas";
 
 mongoose
-  .connect(online)
+  .connect(url)
   .then(() => {
     console.log("database is now connected...!");
   })
-  .catch(() => {
-    console.log("can not connect to the database");
+  .catch((error) => {
+    console.log(error);
   });
 
 module.exports = mongoose;
